@@ -1,0 +1,16 @@
+import * as project from './project';
+import * as advisor from './advisor';
+import * as member from './member';
+import * as backer from './backer';
+import * as auth from './auth';
+import * as user from './user';
+import * as create_project from './create-project';
+import * as transaction from './transaction';
+export const memberService = member;
+export const userService = user;
+export const projectService = project;
+export const advisorService = advisor;
+export const authService = auth;
+export const createProjectService = create_project;
+export const backerService = backer;
+export const transactionService = transaction;

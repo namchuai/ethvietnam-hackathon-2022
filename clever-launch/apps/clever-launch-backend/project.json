@@ -1,0 +1,71 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/clever-launch-backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/clever-launch-backend",
+        "main": "apps/clever-launch-backend/src/main.ts",
+        "tsConfig": "apps/clever-launch-backend/tsconfig.app.json",
+        "assets": ["apps/clever-launch-backend/src/assets"],
+        "tsPlugins": ["@nestjs/swagger/plugin"],
+        "generatePackageJson": true
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/clever-launch-backend/src/environments/environment.ts",
+              "with": "apps/clever-launch-backend/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "clever-launch-backend:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "clever-launch-backend:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/clever-launch-backend/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/clever-launch-backend"],
+      "options": {
+        "jestConfig": "apps/clever-launch-backend/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "deploy": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx build clever-launch-backend",
+          "docker build --no-cache -f ./apps/clever-launch-backend/Dockerfile . -t clever-launch-backend"
+        ],
+        "parallel": false
+      }
+    }
+  },
+  "tags": []
+}

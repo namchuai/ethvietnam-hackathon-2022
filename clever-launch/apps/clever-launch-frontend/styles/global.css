@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Be Vietnam Pro', serif;
+}
+
+.slick-slide {
+  padding-right: 15px;
+}
+
+@media only screen and (max-width: 480px) {
+  .slick-slide {
+    padding-right: 0px;
+  }
+}
+
+.nextui-c-iwmZdB-dpkacN-borderWeight-normal {
+  --nextui--inputBorderWeight: 1px !important;
+}
+
+.nextui-c-hzQjrs {
+  text-align: start;
+}
+
+.is-active .icon {
+  filter: invert(15%) sepia(0%) saturate(1170%) hue-rotate(150deg)
+    brightness(100%) contrast(70%);
+}
+
+.ProseMirror {
+  height: 530px;
+  overflow-y: scroll;
+}
+
+.ProseMirror::-webkit-scrollbar {
+  -webkit-appearance: none;
+  -webkit-overflow-scrolling: auto;
+  width: 13px;
+}
+
+.ProseMirror::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #aaaaaa;
+}
+
+.nextui-c-cwdhZi {
+  margin: 0px !important;
+}
+.nextui-c-hzQjrs {
+  padding: 0 !important;
+}
+
+.nextui-c-iWjDFM .nextui-button-text {
+  z-index: 1 !important;
+}
+
+.nextui-c-bDGMeb {
+  z-index: 1 !important;
+}
+
+.nextui-c-gEEnVX .nextui-avatar-bg {
+  z-index: 1 !important;
+}
+
+.custom-modal {
+  width: 100vw !important;
+  min-height: 100vh;
+  margin-top: -20px;
+  border-radius: 0px !important;
+}
+.nextui-c-grJsex {
+  width: 100% !important;
+}
+
+.center-cropped {
+  object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 120px;
+  width: 100%;
+}
+
+.subtitle .nextui-c-eXOOPO {
+  border-radius: 8px !important;
+}
+
+.ProseMirror * {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+}
+
+/*.nextui-c-cVVQUL {*/
+/*  left: calc(100vw - 386px) !important;*/
+/*}*/
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
